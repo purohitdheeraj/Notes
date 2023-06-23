@@ -13,7 +13,7 @@ body {
 	height: 100vh;
 	margin: 0 auto;
 	padding: 1rem;
-  font-family: 'Inconsolata', monospace;
+	font-family: "Inconsolata", monospace;
 }
 
 .main-wrapper {
@@ -36,8 +36,30 @@ body {
 	border-radius: 4px;
 }
 
-header h2{
-  font-size: 4.8rem;
-  font-family: 'Space Mono', monospace;
-  text-align: center;
+header h2 {
+	font-size: 4.8rem;
+	font-family: "Space Mono", monospace;
+	text-align: center;
+}
+
+.empty-notes {
+	text-align: center;
+	padding: 2rem;
+	border-radius: 8px;
+	font-size: 2.8rem;
+}
+
+.empty-notes button {
+	border: none;
+	padding: 0.8rem;
+	border-radius: 6px;
+	background: var(--BG-GRAY);
+	color: #f0f0ff;
+	text-shadow: 0px 0px 3px black;
+	box-shadow: 2px 1px 2px black;
+	cursor: pointer;
+}
+
+.current-note {
+	background: #6f6f6f;
 }
