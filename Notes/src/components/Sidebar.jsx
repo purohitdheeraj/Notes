@@ -4,20 +4,22 @@ function Sidebar(props) {
 	const {
 		notes,
 		addNewNote,
-		currentNoteId,
-		selectCurrentNote,
+		getCurrentNote,
+		setCurrentNoteId,
 	} = props;
 
-	const notesEl = notes.map((note) => {
-		const isCurrent = currentNoteId === note.id;
-
+	const notesEl = notes.map((note, index) => {
 		return (
 			<h2
-				className={isCurrent ? "current-note" : ""}
+				className={
+					getCurrentNote.id === note.id
+						? "current-note"
+						: ""
+				}
 				key={note.id}
-				onClick={() => selectCurrentNote(note.id)}
+				onClick={() => setCurrentNoteId(note.id)}
 			>
-				{note.title}
+				Note {index + 1}
 			</h2>
 		);
 	});

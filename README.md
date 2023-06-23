@@ -10,7 +10,7 @@ Features - Markdown Notes App
 
 on going
 
-- [X] Basic Layout
-- [X] ADD notes
-- [ ] current notes
-- [X] Conditionally render
+- [x] Basic Layout
+- [x] ADD notes
+- [x] current notes
+- [x] Conditionally render

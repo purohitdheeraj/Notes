@@ -5,25 +5,24 @@ import { v4 as uuidv4 } from "uuid";
 
 function App() {
 	const [notes, setNotes] = useState([]);
-	const [currentNoteId, setCurrentNoteId] = useState(notes[0] && notes[0].id || "");
+	const [currentNoteId, setCurrentNoteId] = useState("");
 	const [note, setNote] = useState("");
 
 	function addNewNote() {
-		setNotes((prevNotes) => {
-			return [
-				...prevNotes,
-				{
-					id: uuidv4(),
-					title: `Note ${prevNotes.length + 1}`,
-					note: "",
-				},
-			];
-		});
+		const newNote = {
+			id: uuidv4(),
+			body: "let's get started",
+		};
+		setNotes((prevNotes) => [newNote, ...prevNotes]);
+		setCurrentNoteId(newNote.id);
 	}
 
-  function selectCurrentNote(id){
-    setCurrentNoteId(id)
-  }
+	const getCurrentNote = () => {
+		return (
+			notes.find((note) => note.id === currentNoteId) ||
+			notes[0]
+		);
+	};
 
 	return (
 		<>
@@ -35,9 +34,10 @@ function App() {
 					<Sidebar
 						notes={notes}
 						addNewNote={addNewNote}
-						currentNoteId={currentNoteId}
-            selectCurrentNote={selectCurrentNote}
+						getCurrentNote={getCurrentNote()}
+						setCurrentNoteId={setCurrentNoteId}
 					/>
+
 					<article className="editor">
 						Editor
 						<div className="note">
