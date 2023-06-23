@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 function App() {
 	const [notes, setNotes] = useState([]);
 	const [currentNoteId, setCurrentNoteId] = useState("");
-	const [note, setNote] = useState("");
 
 	function addNewNote() {
 		const newNote = {
@@ -22,6 +21,16 @@ function App() {
 			notes.find((note) => note.id === currentNoteId) ||
 			notes[0]
 		);
+	};
+
+	const updateNote = (e) => {
+		setNotes((prevNotes) => {
+			return prevNotes.map((note) =>
+				note.id === currentNoteId
+					? { ...note, body: e.target.value }
+					: note
+			);
+		});
 	};
 
 	return (
@@ -43,8 +52,8 @@ function App() {
 						<div className="note">
 							<input
 								type="text"
-								value={note}
-								onChange={(e) => setNote(e.target.value)}
+								value={getCurrentNote().body}
+								onChange={updateNote}
 							/>
 						</div>
 					</article>
