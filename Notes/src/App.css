@@ -13,6 +13,7 @@ body {
 	height: 100vh;
 	margin: 0 auto;
 	padding: 1rem;
+  font-family: 'Inconsolata', monospace;
 }
 
 .main-wrapper {
@@ -33,4 +34,10 @@ body {
 	flex: 1 1 60%;
 	padding: 1rem;
 	border-radius: 4px;
+}
+
+header h2{
+  font-size: 4.8rem;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
 }
